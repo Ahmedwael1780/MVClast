@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Department>
+
+<div class="d-flex justify-content-center">
+    <h1 class="text-success">Departments Portal</h1>
+</div>
+
+<br />
+<hr />
+<br />
+
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(e => e.DeptId)</th>
+            <th scope="col">@Html.DisplayNameFor(e => e.DeptName)</th>
+            <th scope="col" colspan="3">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td scope="col">@item.DeptId</td>
+                <td scope="col">@item.DeptName</td>
+                <td scope="col">
+                    <a asp-controller="Department" asp-action="Details" asp-route-Id="@item.DeptId" class="btn btn-primary">View</a>
+                </td>
+                <td scope="col">
+                    <a asp-controller="Department" asp-action="Edit" asp-route-Id="@item.DeptId" class="btn btn-secondary">Edit</a>
+                </td>
+                <td scope="col">
+                    <form asp-controller="Department" asp-action="Delete" asp-route-Id="@item.DeptId" method="post" onsubmit="return confirm('Are you sure uou want to delete this item?')">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <a asp-controller="Department" asp-action="Create" class="btn btn-success">Add Department</a>
+    </tfoot>
+</table>

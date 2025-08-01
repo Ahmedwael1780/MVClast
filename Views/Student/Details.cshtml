@@ -1,0 +1,26 @@
+﻿@model Student
+
+<div class="d-flex justify-content-center">
+    <h1 class="text-success">Student Details</h1>
+</div>
+
+<br />
+<hr />
+<br />
+
+<div class="d-flex justify-content-center">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">@Html.DisplayNameFor(e => e.Name):  @Model.Name</h5>
+            <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayNameFor(e => e.Id):  @Model.Id</h6>
+            <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayNameFor(e => e.Age):  @Model.Age</h6>
+            
+            <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayNameFor(e => e.Address):  @Model.Address</h6>
+            <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayNameFor(e => e.Email):  @Model.Email</h6>
+            <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayNameFor(e => e.Department):  @Model.Department.DeptName</h6>
+            <div class="d-flex justify-content-center">
+                <a asp-controller="Student" asp-action="Index" class="btn btn-secondary mt-4">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
